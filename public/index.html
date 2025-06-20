@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Service Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Web Service Prototype</h1>
+            <p>Front-Backend TEST 6/19/2025</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Frontend Message</h2>
+                <div class="message frontend-message">
+                    <span class="icon">👋</span>
+                    <span>Hello World from Frontend!</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Backend Response</h2>
+                <div class="message backend-message" id="backendMessage">
+                    <span class="icon">⏳</span>
+                    <span>Loading...</span>
+                </div>
+                <button id="fetchButton" class="btn">Fetch from Backend</button>
+            </div>
+
+            <div class="card">
+                <h2>Connection Status</h2>
+                <div class="status" id="connectionStatus">
+                    <span class="status-indicator" id="statusIndicator">●</span>
+                    <span id="statusText">Checking connection...</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Front to Backend TEST</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

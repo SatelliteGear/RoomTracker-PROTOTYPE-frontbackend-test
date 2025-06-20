@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(135deg, #2e473b 0%, #7bb274 100%);
+    min-height: 100vh;
+    color: #233524;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #eaf7e6;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(46,71,59,0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    flex: 1;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+    background: #eaf7e6;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(46,71,59,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(46,71,59,0.15);
+}
+
+.card h2 {
+    color: #2e473b;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #b7d6b0;
+    padding-bottom: 10px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.frontend-message {
+    background: linear-gradient(135deg, #2e473b 0%, #7bb274 100%);
+    color: #eaf7e6;
+}
+
+.backend-message {
+    background: #f6fff8;
+    border: 2px solid #b7d6b0;
+    color: #2e473b;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.btn {
+    background: linear-gradient(135deg, #2e473b 0%, #7bb274 100%);
+    color: #eaf7e6;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 71, 59, 0.18);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.status-indicator {
+    font-size: 1.2rem;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.connected {
+    color: #4caf50;
+    animation: none;
+}
+
+.status-indicator.disconnected {
+    color: #f56565;
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #eaf7e6;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+} 
