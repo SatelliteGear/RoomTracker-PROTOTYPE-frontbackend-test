@@ -1,6 +1,6 @@
 # Web Service Prototype
 
-A simple web service prototype demonstrating frontend-backend communication with a "Hello World" example.
+A simple web service prototype showing frontend-backend communication with "Hello World"
 
 ## Features
 
@@ -23,7 +23,7 @@ web-service-prototype/
 └── README.md             # This file
 ```
 
-## Prerequisites
+## Necessities
 
 - Node.js (version 14 or higher)
 - npm (comes with Node.js)
@@ -35,7 +35,7 @@ web-service-prototype/
    npm install
    ```
 
-## Running the Application
+## Running the App
 
 1. **Start the server:**
    ```bash
@@ -83,4 +83,4 @@ web-service-prototype/
 - **Styling**: Modern CSS with gradients, flexbox, and grid
 - **Communication**: Fetch API for HTTP requests
 
-This prototype validates that your frontend and backend are working and connected correctly, providing a foundation for building more complex web services. 
+This prototype validates that the frontend and backend are working and connected correctly, providing the foundation to build the room availability tracker.  
