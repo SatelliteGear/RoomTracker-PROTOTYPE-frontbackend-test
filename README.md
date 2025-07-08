@@ -83,4 +83,21 @@ web-service-prototype/
 - **Styling**: Modern CSS with gradients, flexbox, and grid
 - **Communication**: Fetch API for HTTP requests
 
-This prototype validates that the frontend and backend are working and connected correctly, providing the foundation to build the room availability tracker.  
+This prototype validates that your frontend and backend are working and connected correctly, providing a foundation for building more complex web services. 
+
+## Running Backend Unit Tests
+
+This project uses [Jest](https://jestjs.io/) and [Supertest](https://github.com/ladjs/supertest) for backend unit testing.
+
+### To run the tests:
+
+1. Install dependencies (if you haven't already):
+   ```bash
+   npm install
+   ```
+2. Run the tests:
+   ```bash
+   npm test
+   ```
+
+Test files are located in the `tests/` directory. The tests cover API endpoints and include edge cases.
