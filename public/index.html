@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Service Prototype</title>
+    <title>Cal Poly Pomona - University Library Study Room Booking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -12,39 +12,74 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌐 Web Service Prototype</h1>
-            <p>Front-Backend TEST 6/19/2025</p>
+            <h1>🏛️ Cal Poly Pomona University Library</h1>
+            <p>Study Room Booking System - Group Study Rooms</p>
+            <div class="library-info">
+                <p><strong>Building 15</strong> | <strong>Phone:</strong> 909-869-3074 | <strong>Email:</strong> library@cpp.edu</p>
+            </div>
+            <div class="admin-link">
+                <a href="/admin" class="btn btn-secondary">📊 Admin Dashboard</a>
+            </div>
         </header>
 
+        <nav class="floor-nav">
+            <h3>Select Floor:</h3>
+            <div class="floor-buttons" id="floorButtons">
+                <!-- Floor buttons will be populated by JavaScript -->
+            </div>
+            <div class="floor-info">
+                <p><strong>Note:</strong> Group study rooms require a minimum of 2 students. Floors 2, 3, and 4 are collaborative spaces. For quiet study, visit floors 1, 5, or 6.</p>
+            </div>
+        </nav>
+
         <main>
-            <div class="card">
-                <h2>Frontend Message</h2>
-                <div class="message frontend-message">
-                    <span class="icon">👋</span>
-                    <span>Hello World from Frontend!</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Backend Response</h2>
-                <div class="message backend-message" id="backendMessage">
-                    <span class="icon">⏳</span>
-                    <span>Loading...</span>
-                </div>
-                <button id="fetchButton" class="btn">Fetch from Backend</button>
-            </div>
-
-            <div class="card">
-                <h2>Connection Status</h2>
-                <div class="status" id="connectionStatus">
-                    <span class="status-indicator" id="statusIndicator">●</span>
-                    <span id="statusText">Checking connection...</span>
-                </div>
+            <div class="room-grid" id="roomGrid">
+                <!-- Room cards will be populated by JavaScript -->
             </div>
         </main>
 
+        <!-- Booking Modal -->
+        <div class="modal" id="bookingModal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Book Study Room</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="roomName">Room:</label>
+                        <input type="text" id="roomName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">Your Name:</label>
+                        <input type="text" id="userName" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Start Time:</label>
+                        <input type="datetime-local" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time:</label>
+                        <input type="datetime-local" id="endTime" required>
+                    </div>
+                    <div class="booking-rules">
+                        <h4>Booking Rules:</h4>
+                        <ul>
+                            <li>Minimum 2 students required for group study rooms</li>
+                            <li>Maximum booking duration: 2 hours</li>
+                            <li>Rooms are available during library hours</li>
+                            <li>Please clean up after your session</li>
+                        </ul>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBooking">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Book Room</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <footer>
-            <p>Front to Backend TEST</p>
+            <p>Cal Poly Pomona University Library - Study Room Booking System</p>
+            <p>Powered by Node.js & Express | Inspired by the official CPP Library system</p>
         </footer>
     </div>
 

@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     min-height: 100vh;
@@ -24,7 +24,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #F2F0EF;
 }
 
@@ -37,62 +37,185 @@ header h1 {
 header p {
     font-size: 1.1rem;
     opacity: 0.9;
+    margin-bottom: 15px;
 }
 
-main {
-    flex: 1;
+.library-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.library-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.admin-link {
+    margin-top: 15px;
+}
+
+.admin-link .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+}
+
+/* Floor Navigation */
+.floor-nav {
+    background: #F2F0EF;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(3,28,38,0.1);
+}
+
+.floor-nav h3 {
+    margin-bottom: 15px;
+    color: #031c26;
+    font-size: 1.2rem;
+}
+
+.floor-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.floor-btn {
+    background: linear-gradient(135deg, #031c26 0%, #247c6d 100%);
+    color: #F2F0EF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floor-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(3, 28, 38, 0.2);
+}
+
+.floor-btn.active {
+    background: linear-gradient(135deg, #247c6d 0%, #031c26 100%);
+    box-shadow: 0 3px 10px rgba(3, 28, 38, 0.3);
+}
+
+.floor-info {
+    background: #e8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #247c6d;
+}
+
+.floor-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #2d3748;
+}
+
+/* Room Grid */
+.room-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    flex: 1;
 }
 
-.card {
+.room-card {
     background: #F2F0EF;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(3,28,38,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #247c6d;
 }
 
-.card:hover {
+.room-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(3,28,38,0.15);
 }
 
-.card h2 {
-    color: #031c26;
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-    border-bottom: 2px solid #247c6d;
-    padding-bottom: 10px;
+.room-card.available {
+    border-left-color: #48bb78;
 }
 
-.message {
+.room-card.occupied {
+    border-left-color: #f56565;
+}
+
+.room-card.booked {
+    border-left-color: #ed8936;
+}
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.room-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #031c26;
+}
+
+.room-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.room-status.available {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.room-status.occupied {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.room-status.booked {
+    background: #feebc8;
+    color: #c05621;
+}
+
+.room-details {
+    margin-bottom: 20px;
+}
+
+.room-detail {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
-    border-radius: 10px;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.room-detail .icon {
     font-size: 1.1rem;
-    font-weight: 500;
+    width: 20px;
 }
 
-.frontend-message {
-    background: linear-gradient(135deg, #031c26 0%, #247c6d 100%);
-    color: #F2F0EF;
+.room-equipment {
+    background: #e2e8f0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 15px;
 }
 
-.backend-message {
-    background: #f8f6f4;
-    border: 2px solid #247c6d;
-    color: #031c26;
-}
-
-.icon {
-    font-size: 1.5rem;
-}
-
-.btn {
+.book-btn {
     background: linear-gradient(135deg, #031c26 0%, #247c6d 100%);
     color: #F2F0EF;
     border: none;
@@ -102,8 +225,146 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 15px;
     width: 100%;
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(3, 28, 38, 0.18);
+}
+
+.book-btn:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 28, 38, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #F2F0EF;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(3, 28, 38, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #a0aec0;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #031c26;
+}
+
+.modal h2 {
+    margin-bottom: 25px;
+    color: #031c26;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #031c26;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #247c6d;
+}
+
+.form-group input[readonly] {
+    background: #f7fafc;
+    color: #4a5568;
+}
+
+.booking-rules {
+    background: #e8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #247c6d;
+}
+
+.booking-rules h4 {
+    margin-bottom: 10px;
+    color: #031c26;
+    font-size: 1rem;
+}
+
+.booking-rules ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.booking-rules li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #2d3748;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    flex: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #031c26 0%, #247c6d 100%);
+    color: #F2F0EF;
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
 }
 
 .btn:hover {
@@ -111,42 +372,20 @@ main {
     box-shadow: 0 5px 15px rgba(3, 28, 38, 0.18);
 }
 
-.btn:active {
-    transform: translateY(0);
-}
-
-.status {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-}
-
-.status-indicator {
-    font-size: 1.2rem;
-    animation: pulse 2s infinite;
-}
-
-.status-indicator.connected {
-    color: #247c6d;
-    animation: none;
-}
-
-.status-indicator.disconnected {
-    color: #f56565;
-    animation: none;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-footer {
+/* Loading and Error States */
+.loading {
     text-align: center;
-    margin-top: 40px;
+    padding: 40px;
     color: #F2F0EF;
-    opacity: 0.8;
+}
+
+.error {
+    background: #fed7d7;
+    color: #c53030;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #f56565;
 }
 
 /* Responsive design */
@@ -159,11 +398,32 @@ footer {
         font-size: 2rem;
     }
     
-    main {
+    .room-grid {
         grid-template-columns: 1fr;
     }
     
-    .card {
+    .floor-buttons {
+        justify-content: center;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
         padding: 20px;
     }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #F2F0EF;
+    opacity: 0.8;
+}
+
+footer p {
+    margin-bottom: 5px;
 } 
