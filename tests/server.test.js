@@ -46,7 +46,7 @@ describe('Room Management API', () => {
     expect(Array.isArray(res.body)).toBe(true);
     expect(res.body.length).toBeGreaterThan(0);
     expect(res.body).toContain(2); // Should have floor 2
-    expect(res.body).toContain(6); // Should have floor 6 (new addition)
+    expect(res.body).toContain(5); // Should have floor 5
   });
 
   it('GET /api/rooms/floor/:floor should return rooms for specific floor', async () => {

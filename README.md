@@ -167,6 +167,25 @@ The tests cover:
 - Database is automatically initialized with sample data on first run
 - The server automatically restarts when using `npm run dev`
 
+## CI/CD Pipeline
+
+This project includes a complete CI/CD pipeline using GitHub Actions and Vercel deployment:
+
+### Automated Pipeline
+- **Tests**: Automatically runs Jest tests on every push
+- **Build**: Creates deployment artifacts
+- **Deploy**: Deploys to Vercel when tests pass
+
+### Setup Instructions
+See [CI_CD_SETUP.md](CI_CD_SETUP.md) for detailed setup instructions.
+
+### Quick Test
+```bash
+# Test the pipeline setup locally
+chmod +x scripts/test-pipeline.sh
+./scripts/test-pipeline.sh
+```
+
 ## Future Enhancements
 
 - User authentication and student ID integration
