@@ -1,8 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Use persistent database file or in-memory for CI/test environments
-const isCI = process.env.CI || process.env.NODE_ENV === 'test';
+// Use persistent database file or in-memory for CI/test/production environments
+const isCI = process.env.CI || process.env.NODE_ENV === 'test' || process.env.VERCEL;
 const dbPath = isCI ? ':memory:' : path.join(__dirname, 'library_rooms.db');
 const db = new sqlite3.Database(dbPath);
 

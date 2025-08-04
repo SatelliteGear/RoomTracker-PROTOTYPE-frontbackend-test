@@ -13,8 +13,14 @@ app.use(express.json());
 let dbInitialized = false;
 async function ensureDatabaseInitialized() {
   if (!dbInitialized) {
-    await initializeDatabase();
-    dbInitialized = true;
+    try {
+      await initializeDatabase();
+      dbInitialized = true;
+      console.log('Database initialized successfully in Vercel');
+    } catch (error) {
+      console.error('Database initialization failed in Vercel:', error);
+      throw error;
+    }
   }
 }
 
