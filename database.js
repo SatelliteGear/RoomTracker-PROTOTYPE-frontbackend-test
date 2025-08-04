@@ -1,8 +1,9 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Use in-memory database for Vercel compatibility
-const db = new sqlite3.Database(':memory:');
+// Use persistent database file
+const dbPath = path.join(__dirname, 'library_rooms.db');
+const db = new sqlite3.Database(dbPath);
 
 // Initialize database tables
 function initializeDatabase() {
