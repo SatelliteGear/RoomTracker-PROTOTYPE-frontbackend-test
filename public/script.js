@@ -233,8 +233,13 @@ function closeBookingModal() {
 // Set default times for booking
 function setDefaultTimes() {
     const now = new Date();
-    const startTime = new Date(now.getTime() + 30 * 60000); // 30 minutes from now
-    const endTime = new Date(startTime.getTime() + 60 * 60000); // 1 hour later
+    // Round up to next 15-minute interval for cleaner default times
+    const roundedMinutes = Math.ceil(now.getMinutes() / 15) * 15;
+    const startTime = new Date(now);
+    startTime.setMinutes(roundedMinutes + 30, 0, 0); // 30 minutes from rounded time
+    
+    const endTime = new Date(startTime);
+    endTime.setHours(endTime.getHours() + 1); // 1 hour later
     
     // Format for datetime-local input (YYYY-MM-DDTHH:MM)
     const formatDateTime = (date) => {
@@ -246,13 +251,27 @@ function setDefaultTimes() {
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     };
     
-    // Set min attribute to current time to prevent past dates
+    // Set min attribute to current time (rounded down to current minute)
     const minDateTime = formatDateTime(now);
     startTimeInput.min = minDateTime;
     endTimeInput.min = minDateTime;
     
+    // Set default values
     startTimeInput.value = formatDateTime(startTime);
     endTimeInput.value = formatDateTime(endTime);
+    
+    // Update end time min when start time changes
+    startTimeInput.oninput = function() {
+        if (this.value) {
+            endTimeInput.min = this.value;
+            // If end time is now before start time, update it
+            if (endTimeInput.value && endTimeInput.value <= this.value) {
+                const newEndTime = new Date(this.value);
+                newEndTime.setHours(newEndTime.getHours() + 1);
+                endTimeInput.value = formatDateTime(newEndTime);
+            }
+        }
+    };
 }
 
 // Handle booking form submission
