@@ -1,9 +1,20 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Use persistent database file or in-memory for CI/test/production environments
-const isCI = process.env.CI || process.env.NODE_ENV === 'test' || process.env.VERCEL;
-const dbPath = isCI ? ':memory:' : path.join(__dirname, 'library_rooms.db');
+// Use persistent database file or in-memory for CI/test environments
+// For Vercel production, we'll still use in-memory but note the limitation
+const isCI = process.env.CI || process.env.NODE_ENV === 'test';
+const isVercel = process.env.VERCEL || process.env.VERCEL_ENV;
+const dbPath = (isCI || isVercel) ? ':memory:' : path.join(__dirname, 'library_rooms.db');
+
+// Log database mode for debugging
+if (isVercel) {
+  console.log('🔄 Vercel: Using in-memory database (bookings will reset on cold starts)');
+} else if (isCI) {
+  console.log('🧪 CI: Using in-memory database for tests');
+} else {
+  console.log('💾 Local: Using persistent database file');
+}
 const db = new sqlite3.Database(dbPath);
 
 // Initialize database tables

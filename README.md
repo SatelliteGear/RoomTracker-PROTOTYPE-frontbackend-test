@@ -167,6 +167,11 @@ The tests cover:
 - Database is automatically initialized with sample data on first run
 - The server automatically restarts when using `npm run dev`
 
+### Database Behavior by Environment
+- **Local Development**: Uses persistent SQLite file (`library_rooms.db`) - bookings persist
+- **Vercel Production**: Uses in-memory database - bookings reset when serverless functions restart (~5-15 minutes of inactivity)
+- **CI/Testing**: Uses in-memory database for clean test runs
+
 ## CI/CD Pipeline
 
 This project includes a complete CI/CD pipeline using GitHub Actions and Vercel deployment:

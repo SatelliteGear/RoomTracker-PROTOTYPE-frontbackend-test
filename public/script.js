@@ -217,6 +217,7 @@ async function getRoomAvailability(roomId) {
 function openBookingModal(room) {
     selectedRoom = room;
     roomNameInput.value = room.name;
+    setDefaultTimes(); // Set default times when modal opens
     bookingModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -235,8 +236,23 @@ function setDefaultTimes() {
     const startTime = new Date(now.getTime() + 30 * 60000); // 30 minutes from now
     const endTime = new Date(startTime.getTime() + 60 * 60000); // 1 hour later
     
-    startTimeInput.value = startTime.toISOString().slice(0, 16);
-    endTimeInput.value = endTime.toISOString().slice(0, 16);
+    // Format for datetime-local input (YYYY-MM-DDTHH:MM)
+    const formatDateTime = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+    
+    // Set min attribute to current time to prevent past dates
+    const minDateTime = formatDateTime(now);
+    startTimeInput.min = minDateTime;
+    endTimeInput.min = minDateTime;
+    
+    startTimeInput.value = formatDateTime(startTime);
+    endTimeInput.value = formatDateTime(endTime);
 }
 
 // Handle booking form submission
@@ -253,7 +269,10 @@ async function handleBookingSubmit(event) {
         return;
     }
     
-    if (new Date(startTime) <= new Date()) {
+    const startDateTime = new Date(startTime);
+    const now = new Date();
+    
+    if (startDateTime <= now) {
         showError('Start time must be in the future.');
         return;
     }
